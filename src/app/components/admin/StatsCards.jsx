@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import { Calendar, Clock, Users, TrendingUp } from "lucide-react"
-import styles from '@/styles/admin.module.css'
+import styles from '../../styles/admin.module.css'
 
 const StatsCards = ({ stats }) => {
   const cards = [

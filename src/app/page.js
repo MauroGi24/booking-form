@@ -2,12 +2,11 @@
 
 import { useState } from 'react'
 import { Calendar, Settings } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import BookingForm from '@/components/booking/BookingForm'
-import AdminDashboard from '@/components/admin/AdminDashboard'
-import FeatureCards from '@/components/booking/FeatureCards'
-import styles from '@/styles/components.module.css'
-
+import { Button } from './components/ui/button'
+import BookingForm from './components/booking/BookingForm' 
+import AdminDashboard from './components/admin/AdminDashboard'
+import FeatureCards from './components/booking/FeatureCards'
+import styles from './styles/components.module.css'
 export default function HomePage() {
   const [currentView, setCurrentView] = useState('booking')
 
@@ -59,7 +58,7 @@ export default function HomePage() {
                   Prenota il Tuo Appuntamento
                 </h2>
                 <p className="text-xl text-white/90 mb-8">
-                  Scegli la data e l'orario che preferisci per il tuo appuntamento
+                  Scegli data e orario che preferisci per il tuo appuntamento
                 </p>
                 
                 <FeatureCards />

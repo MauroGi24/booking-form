@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { ToastProvider } from '@/components/providers/ToastProvider'
+import { ToastProvider } from './components/providers/ToastProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

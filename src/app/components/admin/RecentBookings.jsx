@@ -1,6 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import { CheckCircle, Clock } from "lucide-react"
-import styles from '@/styles/admin.module.css'
+import styles from '../../styles/admin.module.css'
 
 const RecentBookings = ({ bookings }) => {
   return (

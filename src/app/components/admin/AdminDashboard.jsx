@@ -1,12 +1,12 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
 import { Calendar, Clock, Settings, Users, BarChart3 } from "lucide-react"
 import BookingsList from "./BookingsList"
 import AdminSettings from "./AdminSettings"
 import AdminStats from "./AdminStats"
-import styles from '@/styles/admin.module.css'
+import styles from '../../styles/admin.module.css'
 
 const AdminDashboard = () => {
   return (
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
         </TabsContent>
 
         <TabsContent value="users" className="w-full">
-          <Card>
+          <Card className={styles.statsCard}>
             <CardHeader>
               <CardTitle>Gestione Utenti</CardTitle>
               <CardDescription>

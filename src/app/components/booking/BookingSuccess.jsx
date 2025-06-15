@@ -1,9 +1,9 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
+import { Button } from "../ui/button"
 import { CheckCircle } from "lucide-react"
 import { format } from "date-fns"
 import { it } from "date-fns/locale"
-import styles from '@/styles/booking.module.css'
+import styles from '../../styles/booking.module.css'
 
 const BookingSuccess = ({ selectedDate, selectedTime, email, onNewBooking }) => {
   return (

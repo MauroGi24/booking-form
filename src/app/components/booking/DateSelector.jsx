@@ -1,15 +1,15 @@
 'use client'
 
 import { useFormContext } from "react-hook-form"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Label } from "@/components/ui/label"
+import { Button } from "../ui/button"
+import { Calendar } from "../ui/calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
+import { Label } from "../ui/label"
 import { CalendarIcon } from "lucide-react"
 import { format } from "date-fns"
 import { it } from "date-fns/locale"
-import { cn } from "@/lib/utils"
-import { isDayAvailable } from "@/utils/dateUtils"
+import { cn } from "../../lib/utils"
+import { isDayAvailable } from "../../utils/dateUtils"
 
 const DateSelector = ({ onDateSelect }) => {
   const { setValue, watch, formState: { errors } } = useFormContext()

@@ -1,6 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import { Calendar, Clock, Mail } from "lucide-react"
-import styles from '@/styles/booking.module.css'
+import styles from '../../styles/booking.module.css'
 
 const FeatureCards = () => {
   const features = [

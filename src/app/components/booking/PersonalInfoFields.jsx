@@ -1,8 +1,8 @@
 'use client'
 
 import { useFormContext } from "react-hook-form"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Input } from "../ui/input"
+import { Label } from "../ui/label"
 
 const PersonalInfoFields = () => {
   const { register, formState: { errors } } = useFormContext()

@@ -1,15 +1,15 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
+import { Button } from "../ui/button"
 import { Clock } from "lucide-react"
-import { useBookingForm } from "@/hooks/useBookingForm"
+import { useBookingForm } from "../../hooks/useBookingForm"
 import PersonalInfoFields from "./PersonalInfoFields"
 import DateSelector from "./DateSelector"
 import TimeSlotSelector from "./TimeSlotSelector"
 import BookingSuccess from "./BookingSuccess"
 import { FormProvider } from "react-hook-form"
-import styles from '@/styles/booking.module.css'
+import styles from '../../styles/booking.module.css'
 
 const BookingForm = () => {
   const {

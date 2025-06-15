@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from '@/hooks/useToast'
+import { toast } from '../hooks/useToast'
 import { format } from 'date-fns'
 import { it } from 'date-fns/locale'
-import { bookingSchema } from '@/utils/validation'
+import { bookingSchema } from '../utils/validation'
 
 export const useBookingForm = () => {
   const [selectedDate, setSelectedDate] = useState()

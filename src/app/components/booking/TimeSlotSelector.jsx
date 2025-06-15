@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { Clock } from "lucide-react"
-import { generateTimeSlots } from "@/utils/dateUtils"
-import styles from '@/styles/booking.module.css'
+import { generateTimeSlots } from "../../utils/dateUtils"
+import styles from '../../styles/booking.module.css'
 
 const TimeSlotSelector = ({ selectedDate, selectedTime, onTimeSelect }) => {
   const [availableSlots, setAvailableSlots] = useState([])

@@ -1,7 +1,7 @@
 import StatsCards from "./StatsCards"
 import PopularTimeSlots from "./PopularTimeSlots"
 import RecentBookings from "./RecentBookings"
-import styles from '@/styles/admin.module.css'
+import styles from '../../styles/admin.module.css'
 
 const AdminStats = () => {
   // Mock statistics data
