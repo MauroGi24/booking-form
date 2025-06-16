@@ -36,3 +36,24 @@
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+
+/* CSS minimale per correggere solo il layout del calendario */
+:global(.rdp-table) {
+  width: 100% !important;
+}
+
+:global(.rdp-head_row),
+:global(.rdp-row) {
+  display: flex !important;
+  width: 100% !important;
+}
+
+:global(.rdp-head_cell),
+:global(.rdp-cell) {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 36px !important;
+  height: 36px !important;
+}

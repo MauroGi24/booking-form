@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { Button } from "../ui/button"
 import { Calendar } from "../ui/calendar"
@@ -14,11 +15,18 @@ import { isDayAvailable } from "../../utils/dateUtils"
 const DateSelector = ({ onDateSelect }) => {
   const { setValue, watch, formState: { errors } } = useFormContext()
   const selectedDate = watch("data")
+  const [open, setOpen] = useState(false)
+
+  const handleDateSelect = (date) => {
+    setValue("data", date)
+    onDateSelect(date)
+    setOpen(false) // Chiudi il calendario dopo la selezione
+  }
 
   return (
     <div className="space-y-2">
       <Label>Seleziona Data *</Label>
-      <Popover>
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -39,10 +47,7 @@ const DateSelector = ({ onDateSelect }) => {
           <Calendar
             mode="single"
             selected={selectedDate}
-            onSelect={(date) => {
-              setValue("data", date)
-              onDateSelect(date)
-            }}
+            onSelect={handleDateSelect}
             disabled={(date) => !isDayAvailable(date)}
             initialFocus
             className="pointer-events-auto"

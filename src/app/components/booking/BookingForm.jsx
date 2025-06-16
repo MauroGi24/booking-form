@@ -10,6 +10,7 @@ import TimeSlotSelector from "./TimeSlotSelector"
 import BookingSuccess from "./BookingSuccess"
 import { FormProvider } from "react-hook-form"
 import styles from '../../styles/booking.module.css'
+import style from '../../styles/components.module.css'
 
 const BookingForm = () => {
   const {
@@ -78,7 +79,7 @@ const BookingForm = () => {
             >
               {isSubmitting ? (
                 <>
-                  <Clock className={`mr-2 h-4 w-4 ${styles.loadingSpinner}`} />
+                  <Clock className={`mr-2 h-4 w-4 ${style.loadingSpinner}`} />
                   Elaborazione...
                 </>
               ) : (

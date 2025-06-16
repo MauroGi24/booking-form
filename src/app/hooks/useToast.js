@@ -1,14 +1,7 @@
 import * as React from "react"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 5000
-
-const actionTypes = {
-  ADD_TOAST: "ADD_TOAST",
-  UPDATE_TOAST: "UPDATE_TOAST",
-  DISMISS_TOAST: "DISMISS_TOAST",
-  REMOVE_TOAST: "REMOVE_TOAST",
-}
+const TOAST_REMOVE_DELAY = 3000
 
 let count = 0
 
@@ -54,24 +47,37 @@ export const reducer = (state, action) => {
     case "DISMISS_TOAST": {
       const { toastId } = action
 
-      if (toastId) {
-        addToRemoveQueue(toastId)
-      } else {
-        state.toasts.forEach((toast) => {
-          addToRemoveQueue(toast.id)
-        })
+      // Cancella il timeout se esiste
+      if (toastId && toastTimeouts.has(toastId)) {
+        clearTimeout(toastTimeouts.get(toastId))
+        toastTimeouts.delete(toastId)
       }
 
-      return {
-        ...state,
-        toasts: state.toasts.map((t) =>
-          t.id === toastId || toastId === undefined
-            ? { ...t, open: false }
-            : t
-        ),
+      if (toastId) {
+        return {
+          ...state,
+          toasts: state.toasts.filter((t) => t.id !== toastId),
+        }
+      } else {
+        // Rimuovi tutti
+        state.toasts.forEach((toast) => {
+          if (toastTimeouts.has(toast.id)) {
+            clearTimeout(toastTimeouts.get(toast.id))
+            toastTimeouts.delete(toast.id)
+          }
+        })
+        return {
+          ...state,
+          toasts: [],
+        }
       }
     }
+
     case "REMOVE_TOAST":
+      if (action.toastId && toastTimeouts.has(action.toastId)) {
+        toastTimeouts.delete(action.toastId)
+      }
+      
       if (action.toastId === undefined) {
         return {
           ...state,
@@ -82,6 +88,9 @@ export const reducer = (state, action) => {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       }
+
+    default:
+      return state
   }
 }
 
@@ -103,6 +112,7 @@ function toast({ ...props }) {
       type: "UPDATE_TOAST",
       toast: { ...props, id },
     })
+  
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
 
   dispatch({
@@ -111,11 +121,11 @@ function toast({ ...props }) {
       ...props,
       id,
       open: true,
-      onOpenChange: (open) => {
-        if (!open) dismiss()
-      },
     },
   })
+
+  // Avvia auto-remove
+  addToRemoveQueue(id)
 
   return {
     id: id,
