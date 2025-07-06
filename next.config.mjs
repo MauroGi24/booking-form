@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog'] // Ottimizzazione degli import dei pacchetti
+    optimizePackageImports: ['lucide-react'] // Ottimizzazione degli import dei pacchetti
   },
   // Ottimizzazioni aggiuntive
   poweredByHeader: false,  // Rimuove header http dalle risposte del server. Meno informazioni esposte sui server, Header più piccoli, meno byte trasferiti
